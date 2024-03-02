@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!DOCTYPE html><html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -9,16 +6,25 @@
 
 <body>
   <import src="./_head.html">
-    <link rel="stylesheet" href="./lib/pico.min.css">
-    <script src="./lib/app.js"></script>
+  <link rel="stylesheet" href="./lib/pico.min.css">
+  <link rel="stylesheet" href="./lib/app.css">
+  <script src="./lib/app.js"></script>
+  <script src="./lib/marked.min.js"></script>
+  <script src="./lib/petite-vue.iife.js" init="" defer=""></script>
 
-  </import>
+</import>
   <div class="container">
     <article>
       <h1>Sebuah Catatan</h1>
       <h2>Daftar Isi</h2>
+      <ol v-scope="{
+        index
+      }">
+        <li v-for="item in index">
+          <a :href="item.file + '.html'">{{ item.judul }}</a>
+        </li>
+      </ol>
     </article>
   </div>
-</body>
 
-</html>
+</body></html>
